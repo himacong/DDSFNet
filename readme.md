@@ -26,17 +26,17 @@ DIDFuse、U2Fusion、YDTR、TarDal、SFDFusion。
 ## Installation
 
 
-python = 3.10
-pytorch = 2.1.0
-torchvision
-opencv-python
-numpy
-scipy
-pillow
-kornia
-tqdm
-pyyaml
-thop
+python = 3.10  
+pytorch = 2.1.0  
+torchvision  
+opencv-python  
+numpy  
+scipy  
+pillow  
+kornia  
+tqdm  
+pyyaml  
+thop  
 
 
 ```bash
