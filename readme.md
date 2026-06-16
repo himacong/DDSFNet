@@ -5,21 +5,23 @@ Visible images capture rich colour details, fine textures and high spatial resol
 Nevertheless, their imaging quality degrades drastically in challenging scenarios such as low illumination, fog and smoke. By contrast, infrared images record thermal radiation emitted by objects, enabling reliable detection of heat-emitting targets like pedestrians and vehicles regardless of adverse weather and lighting. However, infrared imagery inherently suffers from blurry textures and low spatial resolution.
 
 ## Main contributions
-### Cross-modal global-local dependency learning: A Dual-Dependent Efficient Interaction Module (DDEIM) is designed to combine attention blocks and patch-wise multi-layer perceptrons (MLP) for joint capture of global channel correlations and local structural interactions between infrared and visible features, strengthening dynamic cross-modal feature communication.
-### Spatial-frequency collaborative enhancement: A Spatial-Frequency Combine Module (SFCM) is designed for multi-scale spatial feature extraction. And Fourier transformation are integrated to realise bidirectional optimisation of spatial textures and frequency-domain edge information. This design effectively suppresses noise interference caused by independent frequency-domain operations.
-### Saliency-aware target preservation: Saliency masks generated from infrared images are leveraged to build a lightweight guidance mechanism for adaptive feature weight allocation, which ensures that thermal targets remain salient while fully retaining the rich texture details of visible images.
-### Comprehensive task validation: Extensive evaluations are conducted on four mainstream public benchmarks. Additional validation on object detection tasks fully verifies the generalisation ability and practical value of the proposed framework for downstream visual perception applications.
+(1) Cross-modal global-local dependency learning: A Dual-Dependent Efficient Interaction Module (DDEIM) is designed to combine attention blocks and patch-wise multi-layer perceptrons (MLP) for joint capture of global channel correlations and local structural interactions between infrared and visible features, strengthening dynamic cross-modal feature communication.
+(2) Spatial-frequency collaborative enhancement: A Spatial-Frequency Combine Module (SFCM) is designed for multi-scale spatial feature extraction. And Fourier transformation are integrated to realise bidirectional optimisation of spatial textures and frequency-domain edge information. This design effectively suppresses noise interference caused by independent frequency-domain operations.
+(3) Saliency-aware target preservation: Saliency masks generated from infrared images are leveraged to build a lightweight guidance mechanism for adaptive feature weight allocation, which ensures that thermal targets remain salient while fully retaining the rich texture details of visible images.
+(4) Comprehensive task validation: Extensive evaluations are conducted on four mainstream public benchmarks. Additional validation on object detection tasks fully verifies the generalisation ability and practical value of the proposed framework for downstream visual perception applications.
 
 
 ## Dataset description
-- **MSRS**：道路场景数据集，用于模型训练，覆盖昼夜、强弱光照等复杂环境；
-- **M3FD**：多模态多光谱数据集，含完整目标检测标注，用于融合测试与下游检测任务验证；
-- **RoadScene**：车载场景数据集，面向行车视觉融合测试；
-- **TNO**：经典通用数据集，包含城市、乡村、港口等多类场景，验证模型泛化能力。
+- **MSRS**：A road-scene dataset adopted for model training, covering complex environments with day/night cycles and varying strong/weak illumination conditions.
+- **M3FD**：A multi-modal multispectral dataset equipped with complete object detection annotations, utilized for fusion evaluation and downstream detection task validation.
+- **RoadScene**：A vehicle-mounted scene dataset dedicated to driving-oriented image fusion tests.
+- **TNO**：A classic general-purpose dataset containing diverse scenarios such as cities, villages and harbors, which is used to verify the generalization capability of the proposed model.
 
-SOTA algorithm ：DIDFuse、U2Fusion、YDTR、TarDal、SFDFusion。
+## SOTA algorithm
+DIDFuse、U2Fusion、YDTR、TarDal、SFDFusion。
 
-## 环境依赖
+## Installation
+
 
 python = 3.10
 pytorch = 2.1.0
