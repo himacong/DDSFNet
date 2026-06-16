@@ -1,30 +1,26 @@
-# DDSFNet：双依赖空频联合感知融合网络
-## 项目简介
+# Saliency-Guided Spatial–Frequency Dependency Modelling for Infrared and Visible Image Fusion
+## Introduction
 本仓库为论文 **DDSFNet: 一种用于红外光与可见光图像融合的双依赖空频联合感知融合网络** 对应的官方 PyTorch 代码实现。
 
 针对现有红外与可见光图像融合方法存在**跨模态特征交互不足、高频细节易丢失**，复杂场景下目标纹理模糊、显著性特征缺失等问题，本文提出**双依赖空间频率联合感知融合网络（DDSFNet）**。网络采用双分支并行架构，结合空域依赖建模与频域信息增强，并引入显著特征引导机制，有效提升多模态特征互补能力。在多个公开数据集上的实验表明，该方法在视觉效果与量化指标上均优于主流算法，同时在下游目标检测任务中具备良好的应用价值。
 
-## 网络核心模块
-DDSFNet 整体由两大核心分支模块与显著性引导机制构成：
-1. **双重依赖高效交互模块（DDEIM）**
-    结合注意力块（ATB）与多层感知器（MLP），分别建模跨模态特征**局部依赖**与**全局通道依赖**，强化红外与可见光特征的动态交互，突出目标语义区域。
-2. **空频结合模块（SFCM）**
-    - 内置**多尺度特征提取与融合模块（MEFM）**：通过不同尺度卷积提取多尺度空域纹理与结构信息；
-    - 频域增强分支：基于快速傅里叶变换（FFT）与逆傅里叶变换（IFFT）强化高频边缘细节，抑制噪声；
-3. **显著特征引导机制**
-    利用红外图像显著性掩码动态分配特征权重，保证融合过程中热目标的显著性不丢失，适配复杂实景、烟雾、弱光照等场景。
+## Main contributions
+### Cross-modal global-local dependency learning: A Dual-Dependent Efficient Interaction Module (DDEIM) is designed to combine attention blocks and patch-wise multi-layer perceptrons (MLP) for joint capture of global channel correlations and local structural interactions between infrared and visible features, strengthening dynamic cross-modal feature communication.
+### Spatial-frequency collaborative enhancement: A Spatial-Frequency Combine Module (SFCM) is designed for multi-scale spatial feature extraction. And Fourier transformation are integrated to realise bidirectional optimisation of spatial textures and frequency-domain edge information. This design effectively suppresses noise interference caused by independent frequency-domain operations.
+### Saliency-aware target preservation: Saliency masks generated from infrared images are leveraged to build a lightweight guidance mechanism for adaptive feature weight allocation, which ensures that thermal targets remain salient while fully retaining the rich texture details of visible images.
+### Comprehensive task validation: Extensive evaluations are conducted on four mainstream public benchmarks. Additional validation on object detection tasks fully verifies the generalisation ability and practical value of the proposed framework for downstream visual perception applications.
 
-## 数据集说明
-本实验使用红外与可见光融合领域主流公开数据集：
+
+## Dataset description
 - **MSRS**：道路场景数据集，用于模型训练，覆盖昼夜、强弱光照等复杂环境；
 - **M3FD**：多模态多光谱数据集，含完整目标检测标注，用于融合测试与下游检测任务验证；
 - **RoadScene**：车载场景数据集，面向行车视觉融合测试；
 - **TNO**：经典通用数据集，包含城市、乡村、港口等多类场景，验证模型泛化能力。
 
-对比算法：DIDFuse、U2Fusion、YDTR、TarDal、SFDFusion。
+SOTA algorithm ：DIDFuse、U2Fusion、YDTR、TarDal、SFDFusion。
 
 ## 环境依赖
-```
+
 python = 3.10
 pytorch = 2.1.0
 torchvision
