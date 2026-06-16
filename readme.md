@@ -21,7 +21,11 @@ Nevertheless, their imaging quality degrades drastically in challenging scenario
 - **TNO**：A classic general-purpose dataset containing diverse scenarios such as cities, villages and harbors, which is used to verify the generalization capability of the proposed model.
 
 ## SOTA algorithm
-DIDFuse、U2Fusion、YDTR、TarDal、SFDFusion。
+DIDFuse  
+U2Fusion  
+YDTR  
+TarDal  
+SFDFusion  
 
 ## Installation
 
