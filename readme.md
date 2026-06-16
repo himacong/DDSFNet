@@ -35,12 +35,12 @@ tqdm
 pyyaml
 thop
 ```
-可通过以下命令安装依赖：
+
 ```bash
 pip install -r requirements.txt
 ```
 
-## 仓库目录结构
+## Repository Structure
 DDSFNet/
 ├── configs/               
 │   ├── cfg.yaml           
