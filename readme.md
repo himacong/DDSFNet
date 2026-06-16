@@ -1,8 +1,8 @@
 # Saliency-Guided Spatial–Frequency Dependency Modelling for Infrared and Visible Image Fusion
 ## Introduction
-本仓库为论文 **DDSFNet: 一种用于红外光与可见光图像融合的双依赖空频联合感知融合网络** 对应的官方 PyTorch 代码实现。
-
-针对现有红外与可见光图像融合方法存在**跨模态特征交互不足、高频细节易丢失**，复杂场景下目标纹理模糊、显著性特征缺失等问题，本文提出**双依赖空间频率联合感知融合网络（DDSFNet）**。网络采用双分支并行架构，结合空域依赖建模与频域信息增强，并引入显著特征引导机制，有效提升多模态特征互补能力。在多个公开数据集上的实验表明，该方法在视觉效果与量化指标上均优于主流算法，同时在下游目标检测任务中具备良好的应用价值。
+Infrared and visible image fusion (IVIF) is a fundamental task in multimodal visual computing, which aims to integrate complementary information from two heterogeneous imaging modalities into a single high-quality fused image. 
+Visible images capture rich colour details, fine textures and high spatial resolution, delivering superior visual perception under normal lighting conditions.
+Nevertheless, their imaging quality degrades drastically in challenging scenarios such as low illumination, fog and smoke. By contrast, infrared images record thermal radiation emitted by objects, enabling reliable detection of heat-emitting targets like pedestrians and vehicles regardless of adverse weather and lighting. However, infrared imagery inherently suffers from blurry textures and low spatial resolution.
 
 ## Main contributions
 ### Cross-modal global-local dependency learning: A Dual-Dependent Efficient Interaction Module (DDEIM) is designed to combine attention blocks and patch-wise multi-layer perceptrons (MLP) for joint capture of global channel correlations and local structural interactions between infrared and visible features, strengthening dynamic cross-modal feature communication.
@@ -40,23 +40,23 @@ pip install -r requirements.txt
 
 ## 仓库目录结构
 DDSFNet/
-├── configs/                # 配置文件目录
-│   ├── cfg.yaml            # 基础配置（如数据集路径、训练超参）
-│   └── yolov8s.yaml        # 目标检测模型结构配置
-├── dataset.py              #数据集加载与预处理：自定义 Dataset 类、数据增强、数据加载器（Dataloader）
-├── modules.py              # 模型模块            
-├── utils/                  # 工具函数目录：如日志记录、指标计算、模型保存 / 加载、可视化等通用函数
-│   ├── evaluator.py        # 模型评估相关
-│   ├── get_params_group.py # 参数分组          
-│   ├── img_read.py         # 图像读取相关工具函数       
-│   ├── loss.py             # 损失函数定义
-│   ├── misc.py             # 杂项工具函数
-│   ├── plot_labels.py      # 标签可视化、绘图相关函数
-│   ├── saliency.py         # 显著性检测相关工具/算法
-│   ├── u2net.py            # U2Net模型相关实现
-│   └── u2netp.pth          # U2Netp模型预训练权重文件
-├── train.py                # 训练脚本
-├── val.py                  # 验证/测试脚本
-├── fuse.py                 # 融合逻辑脚本
-└── README.md               #项目说明
+├── configs/               
+│   ├── cfg.yaml           
+│   └── yolov8s.yaml       
+├── dataset.py             
+├── modules.py             
+├── utils/               
+│   ├── evaluator.py        
+│   ├── get_params_group.py 
+│   ├── img_read.py       
+│   ├── loss.py           
+│   ├── misc.py           
+│   ├── plot_labels.py    
+│   ├── saliency.py      
+│   ├── u2net.py         
+│   └── u2netp.pth       
+├── train.py            
+├── val.py             
+├── fuse.py            
+└── README.md          
 
